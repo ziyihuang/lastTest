@@ -42,7 +42,7 @@ protected void tearDown() throws Exception {
 
     		
     	solo.clickOnView(mUIManager.getPersonalView());
-    	if (solo.searchText("^夺宝币$"))/* 在我的页面校验app是否登录，若未登录，则调用login()方法登录 */
+    	if (solo.searchText("^夺宝币"))/* 在我的页面校验app是否登录，若未登录，则调用login()方法登录 */
 		{
 
 			//f.share();// 分享页面的测试用例
