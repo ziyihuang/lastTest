@@ -95,6 +95,7 @@ protected void tearDown() throws Exception {
 		 solo.clickOnView(solo.getView("main_setting"));
 		 solo.clickOnView(solo.getView("exit_layout"));
 	     solo.sleep(1000);
+	     solo.sleep(1000);
 	     solo.waitForText("幸运降临");
 		 solo.clickOnView(solo.getView("sure_t"));
 	     solo.sleep(1000);
