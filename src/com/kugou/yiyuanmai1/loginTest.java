@@ -9,9 +9,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.kugou.yiyuanmai1.entrance;
-public class personalCenter extends entrance {
+public class loginTest extends entrance {
 
-public personalCenter() throws ClassNotFoundException {
+public loginTest() throws ClassNotFoundException {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -42,16 +42,16 @@ protected void tearDown() throws Exception {
 
     		
     	solo.clickOnView(mUIManager.getPersonalView());
-    	if (solo.searchText("^夺宝币"))/* 在我的页面校验app是否登录，若未登录，则调用login()方法登录 */
+    	if (solo.searchText("^夺宝币$"))/* 在我的页面校验app是否登录，若未登录，则调用login()方法登录 */
 		{
 
 			//f.share();// 分享页面的测试用例
 			//d.TestDuobaopage();// 夺宝页面的测试用例
 			casename="我的页面--已登录状态";
 			Log.d("ziyi","已登录");
-			Toast.makeText(getActivity(), "已登录", Toast.LENGTH_LONG).show();
+			
 			newVerifyEquals(casename, solo.searchButton("充值"),true);
-            //loginout();
+       
 			solo.sleep(InputDataStore.Input_APIWaitTime);
 		} else
 
@@ -78,14 +78,15 @@ protected void tearDown() throws Exception {
 		solo.enterText(passwordEditText, CommonLib.getPropertyString("password"));
 		solo.clickOnButton("^登录$");
 		// solo.sleep(APIWaitTime);
-		if (solo.waitForText("^夺宝币$")) {
+		if (solo.waitForText("^夺宝币")) {
 			// solo.clickOnView(view1);
 			solo.sleep(InputDataStore.Input_APIWaitTime);
 			Log.d(tag, "登录成功");
-		    Toast.makeText(getActivity(), "登录成功", Toast.LENGTH_LONG).show();
+	
+		    loginout();
 		} else {
 			log.d(tag, "登录失败");
-		    Toast.makeText(getActivity(), "登录失败", Toast.LENGTH_LONG).show();
+
 
 		}
 	}
@@ -95,7 +96,6 @@ protected void tearDown() throws Exception {
 		 solo.clickOnView(solo.getView("main_setting"));
 		 solo.clickOnView(solo.getView("exit_layout"));
 	     solo.sleep(1000);
-	     solo.sleep(1000);
 	     solo.waitForText("幸运降临");
 		 solo.clickOnView(solo.getView("sure_t"));
 	     solo.sleep(1000);
@@ -103,4 +103,3 @@ protected void tearDown() throws Exception {
 	}
     
 }
-
