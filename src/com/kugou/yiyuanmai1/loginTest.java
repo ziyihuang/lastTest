@@ -26,22 +26,26 @@ protected void setUp() throws Exception {
 protected void tearDown() throws Exception {
 	//ReportLib.newTeardown("ziyi");
 	solo.finishOpenedActivities();
-	//loginout();
+	loginout();
 }
     UIManager mUIManager;
 	private EditText nameEditText, passwordEditText;
     private Log log;
     String casename;
     public void testPersonal() throws Exception {
-//    	if (solo.searchText("^进入一元买$"));
+    	//首次登陆弹窗
+//    	if (solo.waitForText("^进入一元买"))
 //    	{
 //    	solo.clickOnView(solo.getView("into_sys"));
 //    	solo.clickOnView(solo.getView("go_buy"));
 //    	}
-
-
+//       
+    
+    		solo.clickOnView(mUIManager.getPersonalView());
+    	
+    	
     		
-    	solo.clickOnView(mUIManager.getPersonalView());
+    	//solo.clickOnView(mUIManager.getPersonalView());
     	if (solo.searchText("^夺宝币$"))/* 在我的页面校验app是否登录，若未登录，则调用login()方法登录 */
 		{
 
@@ -58,13 +62,14 @@ protected void tearDown() throws Exception {
 		{   casename="登录页面";
 		    solo.clickOnView(solo.getView("goto_login"));
 		    Log.d(tag,"进入登录界面");
-		    Toast.makeText(getActivity(), "进入登录界面", Toast.LENGTH_LONG).show();
+		    
 			login();
 			//ReportLib.setup("ziyi");
-			newVerifyEquals(casename, solo.searchButton("充值"),true);
+			newVerifyEquals(casename, solo.searchButton("充值22123"),true);
 		  
 			
 		}
+    	
     	
     }
 
@@ -83,7 +88,7 @@ protected void tearDown() throws Exception {
 			solo.sleep(InputDataStore.Input_APIWaitTime);
 			Log.d(tag, "登录成功");
 	
-		    loginout();
+		   // loginout();
 		} else {
 			log.d(tag, "登录失败");
 

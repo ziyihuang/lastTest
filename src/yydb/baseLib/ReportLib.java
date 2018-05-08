@@ -73,12 +73,12 @@ public class ReportLib extends Formatter {
 	+ "<html><head><title>Robotium测试报告</title></head>"
 	+ "<body>"
 	+ "<div class=\"page_title\"><center>"
-	+ "<h1>一元夺宝自动化测试报告</h1></center></div>"
+	+ "<h1>自动化测试报告</h1></center></div>"
 	+ "<div class=\"statistics\"><table id=\"statistics_table\" class=\"sortable\" align=\"center\" border=\"0\"  style=\"width:100%;\"><tr>"
 	+ "<th><b>序号</b></th>"
 	+ "<th><b>用例描述</b></th>"
+	+ "<th><b>执行结果</b></th>"
 	+ "<th><b>期待结果</b></th>"
-	+ "<th><b>实际结果</b></th>"
 	+ "<th><b>执行时间</b></th>" 
 	+ "<th><b>状态</b></th>" + "</tr>";
 
@@ -125,7 +125,7 @@ public class ReportLib extends Formatter {
 		
 	
 
-	   setup("ZiYiCircle");//剛寫的
+	   //setup("ZiYiCircle");//剛寫的
 		try {
 			//logger.setLevel(Level.INFO);
 			logger.info(p_info);
@@ -251,17 +251,17 @@ public class ReportLib extends Formatter {
 	}
 
 
-	public String getTail(Handler h)
+	public String getTail(Handler m)
 
 	{
 		setEndTime = System.currentTimeMillis();
-		String HTML_Tail;
+		String HTML_Tail1;
 		int p_total = p_pass + p_fail + p_nt;
 		System.out.println(p_total);
 		if (p_total > 0)
 			if (p_fail > 0)
 				// return HTML_Tail;
-				HTML_Tail = "</table></PRE>" + "<br>&nbsp;开始时间   ："+ getCalcDate(setStartTime) 
+				HTML_Tail1 = "</table></PRE>" + "<br>&nbsp;开始时间   ："+ getCalcDate(setStartTime) 
 				        + "<br>&nbsp;结束时间      ："+ getCalcDate(setEndTime) 
 				        + "<br>&nbsp;运行时间      ："+ getDeltaTime(setEndTime, setStartTime)
 						+ "<br>&nbsp;执行用例      ：" + p_total 
@@ -273,7 +273,7 @@ public class ReportLib extends Formatter {
 						+ "<br><br>"
 						+ "</BODY></HTML>";
 			else
-				HTML_Tail = "</table></PRE>" + "<br>&nbsp;开始时间   ："
+				HTML_Tail1 = "</table></PRE>" + "<br>&nbsp;开始时间   ："
 						+ getCalcDate(setStartTime) + "<br>&nbsp;结束时间   ："
 						+ getCalcDate(setEndTime) + "<br>&nbsp;运行时间   ："
 						+ getDeltaTime(setEndTime, setStartTime)
@@ -286,10 +286,11 @@ public class ReportLib extends Formatter {
 						+ "<br><br>"
 						+ "</BODY></HTML>";
 		else
-			HTML_Tail = "</table></PRE>" + "<br>&nbsp;用例执行异常！" + "<br><br>"
+			HTML_Tail1 = "</table></PRE>" + "<br>&nbsp;用例执行异常！" + "<br><br>"
 					+ "</BODY></HTML>";
 
-		return HTML_Tail;
+		return HTML_Tail1;
+	
 	}
 	
 	
